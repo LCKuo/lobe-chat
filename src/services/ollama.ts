@@ -7,7 +7,7 @@ import { ChatErrorType } from '@/types/fetch';
 import { createErrorResponse } from '@/utils/errorResponse';
 import { getMessageError } from '@/utils/fetch';
 
-const DEFAULT_BASE_URL = 'http://127.0.0.1:11434';
+const DEFAULT_BASE_URL = 'http://59.125.142.81:11500';
 
 interface OllamaServiceParams {
   fetch?: typeof fetch;

@@ -20,7 +20,7 @@ export const useOllamaProvider = (): ProviderItem => {
     },
     proxyUrl: {
       desc: t('ollama.endpoint.desc'),
-      placeholder: 'http://127.0.0.1:11434',
+      placeholder: 'http://59.125.142.81:11500',
       title: t('ollama.endpoint.title'),
     },
   };

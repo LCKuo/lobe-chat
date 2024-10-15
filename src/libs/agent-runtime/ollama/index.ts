@@ -17,7 +17,6 @@ export class LobeOllamaAI implements LobeRuntimeAI {
   private client: Ollama;
 
   baseURL?: string;
-
   constructor({ baseURL }: ClientOptions = {}) {
     try {
       if (baseURL) new URL(baseURL);
@@ -31,6 +30,8 @@ export class LobeOllamaAI implements LobeRuntimeAI {
   }
 
   async chat(payload: ChatStreamPayload, options?: ChatCompetitionOptions) {
+    console.log(this.client);
+
     try {
       const abort = () => {
         this.client.abort();
@@ -45,10 +46,7 @@ export class LobeOllamaAI implements LobeRuntimeAI {
         options: {
           frequency_penalty: payload.frequency_penalty,
           presence_penalty: payload.presence_penalty,
-          temperature: 
-            payload.temperature !== undefined 
-            ? payload.temperature / 2
-            : undefined,
+          temperature: payload.temperature !== undefined ? payload.temperature / 2 : undefined,
           top_p: payload.top_p,
         },
         stream: true,
