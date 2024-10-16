@@ -1,5 +1,83 @@
 <div align="center"><a name="readme-top"></a>
 
+## 步驟 1：編譯 Next.js 專案
+
+首先，確保你已經編譯了你的 Next.js 專案，並且它已準備好進行 Docker 容器化。
+
+```fish
+pnpm build
+```
+
+## 步驟 2：創建 Dockerfile
+
+在專案的根目錄中創建一個 Dockerfile，如下所示 (該檔案已創建)
+
+```fish
+./Dockerfile
+```
+
+## 步驟 3：建立 Docker 映像檔
+
+在專案根目錄下，使用以下命令來構建 Docker 映像檔：
+
+```fish
+docker build -t <這裡換成你要的名字> .
+```
+
+這會使用 Dockerfile 來創建一個 Docker 映像檔，並命名為 <這裡換成你要的名字>。
+
+## 步驟 4：將映像檔儲存為 .tar
+
+使用以下命令將映像檔導出為 .tar 檔案：
+
+```fish
+docker save -o <這裡換成你要的名字>.tar <這裡換成你要的名字>
+```
+
+## 步驟 5：將 .tar 檔案移動到目標機器
+
+將產生的 <這裡換成你要的名字>.tar 檔案拷貝到其他機器上。
+
+## 步驟 6：在目標機器上加載 Docker 映像
+
+在目標機器上，使用以下命令來加載 .tar 檔案：
+
+```fish
+docker load -i <這裡換成你要的名字>.tar
+```
+
+這樣，你的 Docker 映像就會被加載到目標機器上，你可以用它來運行容器。
+
+## 步驟 7：運行 Docker 容器
+
+最後，你可以使用以下命令來運行容器：
+
+```fish
+docker run -d -p 3210:3210 -e OPENAI_API_KEY=sk-xxxx -e ACCESS_CODE=lobe66 --name <容器名字> <映像檔名字>
+```
+
+這樣你就成功將 Next.js 專案容器化並移動到另一台機器上運行。
+
+## 檢查
+
+檢查映像檔有沒有在系統中
+
+```fish
+docker image
+```
+
+檢查容器有沒有正確啟用
+
+```fish
+docker ps
+```
+
+刪除指定容器
+
+```fish
+docker rm -f <容器名字>
+```
+
 [![][image-banner]][vercel-link]
 
 # Lobe Chat
