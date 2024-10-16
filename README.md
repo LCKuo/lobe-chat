@@ -1,5 +1,3 @@
-<div align="center"><a name="readme-top"></a>
-
 ## 步驟 1：編譯 Next.js 專案
 
 首先，確保你已經編譯了你的 Next.js 專案，並且它已準備好進行 Docker 容器化。
@@ -77,6 +75,8 @@ docker ps
 ```fish
 docker rm -f <容器名字>
 ```
+
+<div align="center"><a name="readme-top"></a>
 
 [![][image-banner]][vercel-link]
 
